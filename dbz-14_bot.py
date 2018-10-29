@@ -22,6 +22,14 @@ def handle(msg):
     
     if username == 'giusep92':
         bot.sendMessage(chat_id,'Rassegnati rimani STRANOSESSUALE qualsiasi cosa tu scriva!')
+    elif text == '/aiuto':
+        bot.sendMessage(chat_id,'Le funzioni disponibili sono /riassunto, /personaggi, /luoghivisitati')
+    elif text == '/riassunto':
+        bot.sendMessage(chat_id,'Dopo innumerevoli peripezie e aver messo alla prova il loro allineamento massacrando dei poveracci in un carcere, i nostri eroi sono entrati nel posto segreto, hanno ucciso delle mummie e risolto un indovinello e sono pronti ora alla battaglia finale')
+    elif text == '/personaggi':
+        bot.sendMessage(chat_id,'Ancora da implementare. Comunque sono tutti froci')
+    elif text == '/luoghivisitati':
+        bot.sendMessage(chat_id,'Ancora da implementare. Comunque sono tutti brutti e noiosi')
     else:
         bot.sendMessage(chat_id,text)
     
