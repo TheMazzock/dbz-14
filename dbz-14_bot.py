@@ -9,13 +9,21 @@ def handle(msg):
     print(content_type, chat_type, chat_id)
     pprint(msg)
     
-    username = msg['from']['username']
+    try:
+        username = msg['from']['username']
+    except:
+        firstname = msg['from']['first_name']
     user_id = msg['from']['id']
+    
+    
     
     if content_type == 'text':
         text = msg['text']
-        
-    bot.sendMessage(chat_id,text)
+    
+    if username == 'giusep92':
+        bot.sendMessage(chat_id,'Rassegnati rimani STRANOSESSUALE qualsiasi cosa tu scriva!')
+    else:
+        bot.sendMessage(chat_id,text)
     
     
 TOKEN = '756616900:AAHGeFWrGvONdLWHOYCXuiS2Sb1j_XgJ9YY'
