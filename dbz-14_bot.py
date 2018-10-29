@@ -4,6 +4,14 @@ from pprint import pprint
 
 conn = sqlite3.connect('dbz-14.db')
 c = conn.cursor()
+c.execute('''CREATE TABLE comandi
+             (comando text, descrizione text)''')
+c.execute("INSERT INTO comandi VALUES ('/aiuto','Conoscere i comandi disponibili e quanto riguarda il BOT')")
+c.execute("INSERT INTO comandi VALUES ('/riassunto','Riassunto avventura')")
+c.execute("INSERT INTO comandi VALUES ('/personaggi','Personaggi partecipanti')")
+c.execute("INSERT INTO comandi VALUES ('/luoghivisitati','I luoghi del mondo fantastico')")
+conn.commit()
+conn.close()
 
 
 def handle(msg):
@@ -43,4 +51,3 @@ print('Listening ....')
 # Keep the program running.
 while 1:
     time.sleep(10)
-conn.close()
