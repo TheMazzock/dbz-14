@@ -13,7 +13,7 @@ def handle(msg):
         
     bot.sendMessage(chat_id, text)
     
-TOKEN = 'Il Vostro Token Generato da Botfather'
+TOKEN = '756616900:AAHGeFWrGvONdLWHOYCXuiS2Sb1j_XgJ9YY'
 bot = telepot.Bot(TOKEN)
 MessageLoop(bot, handle).run_as_thread()
 print('Listening ...')
