@@ -7,18 +7,6 @@ conn.isolation_level = None
 c = conn.cursor()
 buffer = ""
 
-
-def handle(msg):
-    content_type, chat_type, chat_id = telepot.glance(msg)
-    print(content_type, chat_type, chat_id)
-    pprint(msg)
-    
-    try:
-        username = msg['from']['username']
-    except:
-        firstname = msg['from']['first_name']
-    user_id = msg['from']['id']
-
 """
 def database(text):
     while True:
@@ -37,9 +25,19 @@ def database(text):
             print("An error occurred:", e.args[0])
         buffer = ""
  """
+
+
+def handle(msg):
+    content_type, chat_type, chat_id = telepot.glance(msg)
+    print(content_type, chat_type, chat_id)
+    pprint(msg)
     
-    
-    
+    try:
+        username = msg['from']['username']
+    except:
+        firstname = msg['from']['first_name']
+    user_id = msg['from']['id']
+   
     if content_type == 'text':
         text = msg['text']
     
