@@ -1,7 +1,9 @@
-import telepot
-import time
+import telepot, time, sqlite3
 from telepot.loop import MessageLoop
 from pprint import pprint
+
+conn = sqlite3.connect('dbz-14.db')
+c = conn.cursor()
 
 
 def handle(msg):
@@ -41,3 +43,4 @@ print('Listening ....')
 # Keep the program running.
 while 1:
     time.sleep(10)
+conn.close()
