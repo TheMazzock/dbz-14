@@ -32,7 +32,7 @@ def tira_dado(x):
     return risultato
     
 
-def menu_dadi()
+def menu_dadi():
     dadi_keyboard = [["4"],["6"],["8"],["10"],["12"],["20"],["100"],
                     ["Esci"]]
     risposta = ReplyKeyboardMarkup(dadi_keyboard, one_time_keyboard=False)
