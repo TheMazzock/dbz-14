@@ -35,7 +35,7 @@ def tira_dado(x):
 def menu_dadi(chat_id,bot):
     dadi_keyboard = [["4"],["6"],["8"],["10"],["12"],["20"],["100"],
                     ["Esci"]]
-    risposta = ReplyKeyboardMarkup(dadi_keyboard, one_time_keyboard=False)
+    risposta = ReplyKeyboardMarkup(keyboard=dadi_keyboard, one_time_keyboard=False)
     if risposta == "Esci":
         return
     else:
