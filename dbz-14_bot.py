@@ -1,4 +1,4 @@
-import telepot, time, sqlite3
+import telepot, time, sqlite3, random
 from telepot.loop import MessageLoop
 from pprint import pprint
 
@@ -53,6 +53,18 @@ def handle(msg):
         bot.sendMessage(chat_id,'Ancora da implementare. Comunque sono tutti brutti e noiosi')
     elif text == '/database':
         bot.sendMessage(chat_id,'Ancora da implementare. Non la toccate che vi mozzo le dita')
+    elif text == '/roll4':
+        bot.sendMessage(chat_id, random.randint(1,4))
+    elif text == '/roll6':
+        bot.sendMessage(chat_id, random.randint(1,6))
+    elif text == '/roll8':
+        bot.sendMessage(chat_id, random.randint(1,8))
+    elif text == '/roll10':
+        bot.sendMessage(chat_id, random.randint(1,10))
+    elif text == '/roll12':
+        bot.sendMessage(chat_id, random.randint(1,12))
+    elif text == '/roll20':
+        bot.sendMessage(chat_id, random.randint(1,20))
     else:
         bot.sendMessage(chat_id,text)
     
