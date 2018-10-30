@@ -41,9 +41,7 @@ def handle(msg):
     if content_type == 'text':
         text = msg['text']
     
-    if username == 'giusep92':
-        bot.sendMessage(chat_id,'Rassegnati rimani STRANOSESSUALE qualsiasi cosa tu scriva!')
-    elif text == '/aiuto':
+    if text == '/aiuto':
         bot.sendMessage(chat_id,'Le funzioni disponibili sono /riassunto, /personaggi, /luoghivisitati, /database (Questa lasciatela stare)')
     elif text == '/riassunto':
         bot.sendMessage(chat_id,'Dopo innumerevoli peripezie e aver messo alla prova il loro allineamento massacrando dei poveracci in un carcere, i nostri eroi sono entrati nel posto segreto, hanno ucciso delle mummie e risolto un indovinello e sono pronti ora alla battaglia finale')
