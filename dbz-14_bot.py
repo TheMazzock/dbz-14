@@ -32,11 +32,10 @@ def tira_dado(x):
     return risultato
     
 
-def menu_dadi():
+def menu_dadi(chat_id,bot):
     dadi_keyboard = [["4"],["6"],["8"],["10"],["12"],["20"],["100"],
                     ["Esci"]]
     risposta = ReplyKeyboardMarkup(dadi_keyboard, one_time_keyboard=False)
-    update.message.reply_text("Che dado vuoi lanciare", reply_markup=risposta)
     if risposta == "Esci":
         return
     else:
@@ -88,7 +87,7 @@ def handle(msg):
                                 ]
                             ))
     elif text == '/dadi':
-        menu_dadi()
+        menu_dadi(chat_id,bot)
     else:
         bot.sendMessage(chat_id,text)
     
