@@ -1,5 +1,6 @@
 import telepot, time, sqlite3, random
 from telepot.loop import MessageLoop
+from telepot.namedtuple import ReplyKeyboardMarkup, KeyboardButton
 from pprint import pprint
 
 conn = sqlite3.connect('dbz-14.db')
@@ -63,6 +64,13 @@ def handle(msg):
         bot.sendMessage(chat_id, random.randint(1,12))
     elif text == '/roll20':
         bot.sendMessage(chat_id, random.randint(1,20))
+    elif text == '/key':
+            bot.sendMessage(chat_id, 'testing custom keyboard',
+                            reply_markup=ReplyKeyboardMarkup(
+                                keyboard=[
+                                    [KeyboardButton(text="Yes"), KeyboardButton(text="No")]
+                                ]
+                            ))
     else:
         bot.sendMessage(chat_id,text)
     
