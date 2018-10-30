@@ -27,6 +27,22 @@ def database(text):
         buffer = ""
  """
 
+def tira_dado(x):
+    risultato = random.randint(1,x)
+    return risultato
+    
+
+def menu_dadi()
+    dadi_keyboard = [["4"],["6"],["8"],["10"],["12"],["20"],["100"],
+                    ["Esci"]]
+    risposta = ReplyKeyboardMarkup(dadi_keyboard, one_time_keyboard=False)
+    update.message.reply_text("Che dado vuoi lanciare", reply_markup=risposta)
+    if risposta == "Esci":
+        return
+    else:
+        risultato = tira_dado(int(risposta))
+        bot.sendMessage(chat_id, risultato)
+
 
 def handle(msg):
     content_type, chat_type, chat_id = telepot.glance(msg)
@@ -71,6 +87,8 @@ def handle(msg):
                                     [KeyboardButton(text="Yes"), KeyboardButton(text="No")]
                                 ]
                             ))
+    elif text == '/dadi':
+        menu_dadi()
     else:
         bot.sendMessage(chat_id,text)
     
