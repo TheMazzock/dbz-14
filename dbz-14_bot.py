@@ -36,8 +36,7 @@ def menu_dadi(chat_id,bot):
     dadi_keyboard = [["4"],["6"],["8"],["10"],["12"],["20"],["100"],
                     ["Esci"]]
     risposta = ReplyKeyboardMarkup(keyboard=dadi_keyboard, one_time_keyboard=False)
-    reply_markup = risposta
-    print(reply_markup)
+    print(reply_markup = risposta)
     if reply_markup == "Esci":
         return
     else:
