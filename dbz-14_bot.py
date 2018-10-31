@@ -7,6 +7,15 @@ conn = sqlite3.connect('dbz-14.db')
 conn.isolation_level = None
 c = conn.cursor()
 buffer = ""
+start_keyboard = [["Personaggi"],["Luoghi"],["Riassunto"],
+                  ["Dadi"],
+                  ["Aiuto"]]
+start_markup = ReplyKeyboardMarkup(keyboard=start_keyboard, one_time_keyboard=False)
+dadi_keyboard = [["d4"],["d6"],["d8"],["d10"],["d12"],["d20"],["d100"],
+                    ["Esci"]]
+dadi_markup = ReplyKeyboardMarkup(keyboard=dadi_keyboard, one_time_keyboard=False)
+
+
 
 """
 def database(text):
@@ -31,19 +40,6 @@ def tira_dado(x):
     risultato = random.randint(1,x)
     return risultato
     
-
-def menu_dadi(chat_id,bot):
-    dadi_keyboard = [["4"],["6"],["8"],["10"],["12"],["20"],["100"],
-                    ["Esci"]]
-    risposta = ReplyKeyboardMarkup(keyboard=dadi_keyboard, one_time_keyboard=False)
-    print(reply_markup = risposta)
-    if reply_markup == "Esci":
-        return
-    else:
-        risultato = tira_dado(int(reply_markup))
-        bot.sendMessage(chat_id, risultato)
-
-
 def handle(msg):
     content_type, chat_type, chat_id = telepot.glance(msg)
     print(content_type, chat_type, chat_id)
@@ -58,7 +54,9 @@ def handle(msg):
     if content_type == 'text':
         text = msg['text']
     
-    if text == '/aiuto':
+    if command == '/start':
+        bot.sendMessage(chat_id, str("Dimmi avventuriero, cazzo vuoi?"), reply_markup=start_markup)
+    elif text == '/aiuto':
         bot.sendMessage(chat_id,'Le funzioni disponibili sono /riassunto, /personaggi, /luoghivisitati, /database (Questa lasciatela stare)')
     elif text == '/riassunto':
         bot.sendMessage(chat_id,'Dopo innumerevoli peripezie e aver messo alla prova il loro allineamento massacrando dei poveracci in un carcere, i nostri eroi sono entrati nel posto segreto, hanno ucciso delle mummie e risolto un indovinello e sono pronti ora alla battaglia finale')
@@ -80,15 +78,9 @@ def handle(msg):
         bot.sendMessage(chat_id, random.randint(1,12))
     elif text == '/roll20':
         bot.sendMessage(chat_id, random.randint(1,20))
-    elif text == '/key':
-            bot.sendMessage(chat_id, 'testing custom keyboard',
-                            reply_markup=ReplyKeyboardMarkup(
-                                keyboard=[
-                                    [KeyboardButton(text="Yes"), KeyboardButton(text="No")]
-                                ]
-                            ))
     elif text == '/dadi':
-        menu_dadi(chat_id,bot)
+        bot.sendMessage(chat_id, str("Che dado vuoi lanciare?"), reply_markup=dadi_markup)
+        
     else:
         bot.sendMessage(chat_id,text)
     
