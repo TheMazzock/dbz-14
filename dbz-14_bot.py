@@ -1,4 +1,4 @@
-import telepot, time, sqlite3, random
+import telepot, time, sqlite3, random, csv
 from telepot.loop import MessageLoop
 from telepot.namedtuple import ReplyKeyboardMarkup, KeyboardButton
 from pprint import pprint
@@ -15,7 +15,12 @@ dadi_keyboard = [["1d4"],["2d4"],["3d4"],["1d6"],["2d6"],["3d6"],["1d8"],["2d8"]
 dadi_markup = ReplyKeyboardMarkup(keyboard=dadi_keyboard, one_time_keyboard=False)
 listadeidadi = ["1d4","2d4","3d4","1d6","2d6","3d6","1d8","2d8","3d8","1d10","2d10","3d10","1d12","2d12","1d20","1d100"]
 
-
+"""
+with open('personaggi.csv', 'rb') as csvfile:
+    spamreader = csv.reader(csvfile, delimiter='|')
+    for row in spamreader:
+        print
+"""
 
 """
 def database(text):
