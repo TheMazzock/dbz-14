@@ -56,29 +56,31 @@ def handle(msg):
     
     if text == '/start':
         bot.sendMessage(chat_id, str("Dimmi avventuriero, cazzo vuoi?"), reply_markup=start_markup)
-    elif text == '/aiuto':
+    elif text == 'Aiuto':
         bot.sendMessage(chat_id,'Le funzioni disponibili sono /riassunto, /personaggi, /luoghivisitati, /database (Questa lasciatela stare)')
-    elif text == '/riassunto':
+    elif text == 'Riassunto':
         bot.sendMessage(chat_id,'Dopo innumerevoli peripezie e aver messo alla prova il loro allineamento massacrando dei poveracci in un carcere, i nostri eroi sono entrati nel posto segreto, hanno ucciso delle mummie e risolto un indovinello e sono pronti ora alla battaglia finale')
-    elif text == '/personaggi':
+    elif text == 'Personaggi':
         bot.sendMessage(chat_id,'Ancora da implementare. Comunque sono tutti froci')
-    elif text == '/luoghivisitati':
+    elif text == 'Luoghi':
         bot.sendMessage(chat_id,'Ancora da implementare. Comunque sono tutti brutti e noiosi')
     elif text == '/database':
         bot.sendMessage(chat_id,'Ancora da implementare. Non la toccate che vi mozzo le dita')
-    elif text == '/roll4':
+    elif text == 'd4':
         bot.sendMessage(chat_id, random.randint(1,4))
-    elif text == '/roll6':
+    elif text == 'd6':
         bot.sendMessage(chat_id, random.randint(1,6))
-    elif text == '/roll8':
+    elif text == 'd8':
         bot.sendMessage(chat_id, random.randint(1,8))
-    elif text == '/roll10':
+    elif text == 'd10':
         bot.sendMessage(chat_id, random.randint(1,10))
-    elif text == '/roll12':
+    elif text == 'd12':
         bot.sendMessage(chat_id, random.randint(1,12))
-    elif text == '/roll20':
+    elif text == 'd20':
         bot.sendMessage(chat_id, random.randint(1,20))
-    elif text == '/dadi':
+    elif text == 'd100':
+        bot.sendMessage(chat_id, random.randint(1,20))
+    elif text == 'Dadi':
         bot.sendMessage(chat_id, str("Che dado vuoi lanciare?"), reply_markup=dadi_markup)
         
     else:
