@@ -45,10 +45,10 @@ def dadi(x):
         dado = int(x[2])
     elif len(x) == 4:
         numero = int(x[0])
-        dado = int(x[2:3])
+        dado = int(x[2:4])
     elif len(x) == 5:
         numero = int(x[0])
-        dado = int(x[2:4])
+        dado = int(x[2:5])
     print(dado)
     risultato = 0
     testo_risultato = ""
