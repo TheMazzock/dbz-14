@@ -49,6 +49,7 @@ def dadi(x):
     elif len(x) == 5:
         numero = int(x[0])
         dado = int(x[2:4])
+    print(dado)
     risultato = 0
     testo_risultato = ""
     for i in range(numero):
