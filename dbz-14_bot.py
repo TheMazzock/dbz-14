@@ -11,8 +11,9 @@ start_keyboard = [["Personaggi"],["Luoghi"],["Riassunto"],
                   ["Dadi"],
                   ["Aiuto"]]
 start_markup = ReplyKeyboardMarkup(keyboard=start_keyboard, one_time_keyboard=False)
-dadi_keyboard = [["1d4"],["2d4"],["3d4"],["d6"],["d8"],["d10"],["d12"],["d20"],["d100"],["Esci"]]
+dadi_keyboard = [["1d4"],["2d4"],["3d4"],["1d6"],["2d6"],["3d6"],["1d8"],["2d8"],["3d8"],["1d10"],["2d10"],["3d10"],["1d12"],["2d12"],["1d20"],["1d100"],["Esci"]]
 dadi_markup = ReplyKeyboardMarkup(keyboard=dadi_keyboard, one_time_keyboard=False)
+listadeidadi = ["1d4","2d4","3d4","1d6","2d6","3d6","1d8","2d8","3d8","1d10","2d10","3d10","1d12","2d12","1d20","1d100"]
 
 
 
@@ -42,13 +43,19 @@ def dadi(x):
     if len(x) == 3:
         numero = int(x[0])
         dado = int(x[2])
-        risultato = 0
-        testo_risultato = ""
-        for i in range(numero):
-            ris=lancia_dado(dado)
-            testo_risultato += str(ris)
-            testo_risultato += " "
-            risultato += ris
+    elif len(x) == 4:
+        numero = int(x[0])
+        dado = int(x[2:3])
+    elif len(x) == 5:
+        numero = int(x[0])
+        dado = int(x[2:4])
+    risultato = 0
+    testo_risultato = ""
+    for i in range(numero):
+        ris=lancia_dado(dado)
+        testo_risultato += str(ris)
+        testo_risultato += " "
+        risultato += ris
     testo_risultato += "totale: "
     testo_risultato += str(risultato)
     return testo_risultato
@@ -79,29 +86,13 @@ def handle(msg):
         bot.sendMessage(chat_id,'Ancora da implementare. Comunque sono tutti brutti e noiosi')
     elif text == '/database':
         bot.sendMessage(chat_id,'Ancora da implementare. Non la toccate che vi mozzo le dita')
-    elif text == '1d4':
+    elif text in listadeidadi:
         lanciodadi = dadi(text)
         bot.sendMessage(chat_id, lanciodadi)
-    elif text == '2d4':
-        lanciodadi = dadi(text)
-        bot.sendMessage(chat_id, lanciodadi)
-    elif text == '3d4':
-        lanciodadi = dadi(text)
-        bot.sendMessage(chat_id, lanciodadi)
-    elif text == 'd6':
-        bot.sendMessage(chat_id, random.randint(1,6))
-    elif text == 'd8':
-        bot.sendMessage(chat_id, random.randint(1,8))
-    elif text == 'd10':
-        bot.sendMessage(chat_id, random.randint(1,10))
-    elif text == 'd12':
-        bot.sendMessage(chat_id, random.randint(1,12))
-    elif text == 'd20':
-        bot.sendMessage(chat_id, random.randint(1,20))
-    elif text == 'd100':
-        bot.sendMessage(chat_id, random.randint(1,20))
     elif text == 'Dadi':
         bot.sendMessage(chat_id, str("Che dado vuoi lanciare?"), reply_markup=dadi_markup)
+    elif text == 'Esci':
+        bot.sendMessage(chat_id, str("Dimmi avventuriero, cazzo vuoi?"), reply_markup=start_markup)
         
     else:
         bot.sendMessage(chat_id,text)
