@@ -11,8 +11,7 @@ start_keyboard = [["Personaggi"],["Luoghi"],["Riassunto"],
                   ["Dadi"],
                   ["Aiuto"]]
 start_markup = ReplyKeyboardMarkup(keyboard=start_keyboard, one_time_keyboard=False)
-dadi_keyboard = [[["1d4"],["2d4"],["3d4"]],[["d6"],["d8"],["d10"]],[["d12"],["d20"],["d100"]],
-                    [["Esci"]]]
+dadi_keyboard = [["1d4"],["2d4"],["3d4"],["d6"],["d8"],["d10"],["d12"],["d20"],["d100"],["Esci"]]
 dadi_markup = ReplyKeyboardMarkup(keyboard=dadi_keyboard, one_time_keyboard=False)
 
 
