@@ -11,7 +11,7 @@ start_keyboard = [["Personaggi"],["Luoghi"],["Riassunto"],
                   ["Dadi"],
                   ["Aiuto"]]
 start_markup = ReplyKeyboardMarkup(keyboard=start_keyboard, one_time_keyboard=False)
-dadi_keyboard = [["d4"],["d6"],["d8"],["d10"],["d12"],["d20"],["d100"],
+dadi_keyboard = [[["1d4"],["2d4"],["3d4"]],["d6"],["d8"],["d10"],["d12"],["d20"],["d100"],
                     ["Esci"]]
 dadi_markup = ReplyKeyboardMarkup(keyboard=dadi_keyboard, one_time_keyboard=False)
 
@@ -36,9 +36,23 @@ def database(text):
         buffer = ""
  """
 
-def tira_dado(x):
-    risultato = random.randint(1,x)
-    return risultato
+def lancia_dado(x):
+    return random.randint(1,x)
+
+def dadi(x):
+    if len(x) == 3:
+        numero = int(x[0])
+        dado = int(x[2])
+        risultato = 0
+        testo_risultato = ""
+        for i in range(numero):
+            ris=lancia_dado(dado)
+            testo_risultato += str(ris)
+            testo_risultato += " "
+            risultato += ris
+    testo_risultato += "totale: "
+    testo_risultato += str(risultato)
+    return testo_risultato
     
 def handle(msg):
     content_type, chat_type, chat_id = telepot.glance(msg)
@@ -66,8 +80,15 @@ def handle(msg):
         bot.sendMessage(chat_id,'Ancora da implementare. Comunque sono tutti brutti e noiosi')
     elif text == '/database':
         bot.sendMessage(chat_id,'Ancora da implementare. Non la toccate che vi mozzo le dita')
-    elif text == 'd4':
-        bot.sendMessage(chat_id, random.randint(1,4))
+    elif text == '1d4':
+        lanciodadi = dadi(text)
+        bot.sendMessage(chat_id, lanciodadi)
+    elif text == '2d4':
+        lanciodadi = dadi(text)
+        bot.sendMessage(chat_id, lanciodadi)
+    elif text == '3d4':
+        lanciodadi = dadi(text)
+        bot.sendMessage(chat_id, lanciodadi)
     elif text == 'd6':
         bot.sendMessage(chat_id, random.randint(1,6))
     elif text == 'd8':
