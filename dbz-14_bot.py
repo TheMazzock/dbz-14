@@ -54,7 +54,7 @@ def handle(msg):
     if content_type == 'text':
         text = msg['text']
     
-    if command == '/start':
+    if text == '/start':
         bot.sendMessage(chat_id, str("Dimmi avventuriero, cazzo vuoi?"), reply_markup=start_markup)
     elif text == '/aiuto':
         bot.sendMessage(chat_id,'Le funzioni disponibili sono /riassunto, /personaggi, /luoghivisitati, /database (Questa lasciatela stare)')
