@@ -7,8 +7,8 @@ conn = sqlite3.connect('dbz-14.db')
 conn.isolation_level = None
 c = conn.cursor()
 buffer = ""
-start_keyboard = [["Personaggi"],["Luoghi"],["Riassunto"],
-                  ["Dadi"],
+start_keyboard = [["Personaggi","Luoghi"],["Riassunto",
+                  "Dadi"],
                   ["Aiuto"]]
 start_markup = ReplyKeyboardMarkup(keyboard=start_keyboard, one_time_keyboard=False)
 dadi_keyboard = [["1d4"],["2d4"],["3d4"],["1d6"],["2d6"],["3d6"],["1d8"],["2d8"],["3d8"],["1d10"],["2d10"],["3d10"],["1d12"],["2d12"],["1d20"],["1d100"],["Esci"]]
