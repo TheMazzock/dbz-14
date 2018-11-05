@@ -12,9 +12,6 @@ start_markup = ReplyKeyboardMarkup(keyboard=start_keyboard, one_time_keyboard=Fa
 dadi_keyboard = [["1d20"],["1d4","2d4","3d4"],["1d6","2d6","3d6"],["1d8","2d8","3d8"],["1d10","2d10","3d10"],["1d12","2d12"],["1d100"],["Esci"]]
 dadi_markup = ReplyKeyboardMarkup(keyboard=dadi_keyboard, one_time_keyboard=False)
 listadeidadi = ["1d4","2d4","3d4","1d6","2d6","3d6","1d8","2d8","3d8","1d10","2d10","3d10","1d12","2d12","1d20","1d100"]
-nomi_keyboard = keyboard_personaggi()
-nomi_markup = ReplyKeyboardMarkup(keyboard=nomi_keyboard, one_time_keyboard=False)
-print(nomi_keyboard)
 
 def keyboard_personaggi():
     with open('personaggi.csv') as csvpersonaggi:
@@ -40,6 +37,10 @@ def keyboard_personaggi():
             minilista=[]
             print(listanomi)
     return listanomi
+
+nomi_keyboard = keyboard_personaggi()
+nomi_markup = ReplyKeyboardMarkup(keyboard=nomi_keyboard, one_time_keyboard=False)
+print(nomi_keyboard)
 
 """
 def database(text):
