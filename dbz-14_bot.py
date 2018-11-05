@@ -12,6 +12,8 @@ start_markup = ReplyKeyboardMarkup(keyboard=start_keyboard, one_time_keyboard=Fa
 dadi_keyboard = [["1d20"],["1d4","2d4","3d4"],["1d6","2d6","3d6"],["1d8","2d8","3d8"],["1d10","2d10","3d10"],["1d12","2d12"],["1d100"],["Esci"]]
 dadi_markup = ReplyKeyboardMarkup(keyboard=dadi_keyboard, one_time_keyboard=False)
 listadeidadi = ["1d4","2d4","3d4","1d6","2d6","3d6","1d8","2d8","3d8","1d10","2d10","3d10","1d12","2d12","1d20","1d100"]
+file_personaggi='personaggi.csv'
+fieldnames_personaggi=['ID', 'NOME', 'DESCRIZIONE']
 
 def keyboard_personaggi():
     with open('personaggi.csv') as csvpersonaggi:
@@ -50,14 +52,17 @@ def get_length(filename):
         print(lenlist)
         return lenlist
 
-"""
-def modifica_personaggi(filename):
-    with open(filename, 'a') as csvpersonaggi:
-        fieldnames = ['ID', 'NOME', 'DESCRIZIONE']
+def append_csv(filename,fieldnames,elemento):
+    next_id = get_length(filename)
+    with open(filename, 'a') as csvfile:
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        idelemento=0
+        new={fieldnames[0]:elemento[0]}
+        for field in fieldnames[1:]:
+            idelemento=+1
+            new{field:elemento[idelemento]}
+        writer.writerow(new)
         
-
-"""
 nomi_keyboard = keyboard_personaggi()
 nomi_markup = ReplyKeyboardMarkup(keyboard=nomi_keyboard, one_time_keyboard=False)
 get_length('personaggi.csv')
