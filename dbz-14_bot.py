@@ -60,7 +60,7 @@ def append_csv(filename,fieldnames,elemento):
         new={fieldnames[0]:elemento[0]}
         for field in fieldnames[1:]:
             idelemento=+1
-            new{field:elemento[idelemento]}
+            new[field:elemento[idelemento]]
         writer.writerow(new)
         
 nomi_keyboard = keyboard_personaggi()
