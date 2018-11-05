@@ -31,8 +31,10 @@ def keyboard_personaggi():
                 per=(row['NOME'])
                 minilista.append(per)
         if minilista  == []:
+            listanomi.append(['Esci'])
             print(listanomi)
         else:
+            minilista.append('Esci')
             listanomi.append(minilista)
             minilista=[]
             print(listanomi)
