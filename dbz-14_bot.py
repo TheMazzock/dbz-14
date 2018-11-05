@@ -42,7 +42,6 @@ def keyboard_personaggi():
 
 nomi_keyboard = keyboard_personaggi()
 nomi_markup = ReplyKeyboardMarkup(keyboard=nomi_keyboard, one_time_keyboard=False)
-print(nomi_keyboard)
 
 """
 def database(text):
@@ -109,7 +108,7 @@ def handle(msg):
     elif text == 'Riassunto':
         bot.sendMessage(chat_id,'Dopo innumerevoli peripezie e aver messo alla prova il loro allineamento massacrando dei poveracci in un carcere, i nostri eroi sono entrati nel posto segreto, hanno ucciso delle mummie e risolto un indovinello e sono pronti ora alla battaglia finale')
     elif text == 'Personaggi':
-        bot.sendMessage(chat_id,'Ancora da implementare. Comunque sono tutti froci')
+        bot.sendMessage(chat_id, str("Ecco l'elenco dei personaggi"), reply_markup=nomi_markup)
     elif text == 'Luoghi':
         bot.sendMessage(chat_id,'Ancora da implementare. Comunque sono tutti brutti e noiosi')
     elif text == '/database':
