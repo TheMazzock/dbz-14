@@ -40,8 +40,27 @@ def keyboard_personaggi():
             print(listanomi)
     return listanomi
 
+
+def get_length(filename):
+    with open(filename, "r") as csvfile:
+        reader = csv.reader(csvfile)
+        reader_list = list(reader)
+        lenlist=len(reader_list)
+        print(reader_list)
+        print(lenlist)
+        return lenlist
+
+"""
+def modifica_personaggi(filename):
+    with open(filename, 'a') as csvpersonaggi:
+        fieldnames = ['ID', 'NOME', 'DESCRIZIONE']
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        
+
+"""
 nomi_keyboard = keyboard_personaggi()
 nomi_markup = ReplyKeyboardMarkup(keyboard=nomi_keyboard, one_time_keyboard=False)
+get_length('personaggi.csv')
 
 """
 def database(text):
