@@ -7,20 +7,39 @@ conn = sqlite3.connect('dbz-14.db')
 conn.isolation_level = None
 c = conn.cursor()
 buffer = ""
-start_keyboard = [["Personaggi","Luoghi"],["Riassunto",
-                  "Dadi"],
-                  ["Aiuto"]]
+start_keyboard = [["Personaggi","Luoghi"],["Riassunto","Dadi"],["Aiuto"]]
 start_markup = ReplyKeyboardMarkup(keyboard=start_keyboard, one_time_keyboard=False)
 dadi_keyboard = [["1d20"],["1d4","2d4","3d4"],["1d6","2d6","3d6"],["1d8","2d8","3d8"],["1d10","2d10","3d10"],["1d12","2d12"],["1d100"],["Esci"]]
 dadi_markup = ReplyKeyboardMarkup(keyboard=dadi_keyboard, one_time_keyboard=False)
 listadeidadi = ["1d4","2d4","3d4","1d6","2d6","3d6","1d8","2d8","3d8","1d10","2d10","3d10","1d12","2d12","1d20","1d100"]
+nomi_keyboard = keyboard_personaggi()
+nomi_markup = ReplyKeyboardMarkup(keyboard=nomi_keyboard, one_time_keyboard=False)
+print(nomi_keyboard)
 
-
-with open('personaggi.csv') as csvpersonaggi:
-    reader = csv.DictReader(csvpersonaggi, delimiter='|')
-    for row in reader:
-        print(row)
-
+def keyboard_personaggi:
+    with open('personaggi.csv') as csvpersonaggi:
+        reader = csv.DictReader(csvpersonaggi, delimiter='|')
+        listanomi=[]
+        minilista=[]
+        for row in reader:
+            print(row)
+            id=int(row['ID'])
+            print(id)
+            if (id % 2) == 0:
+                per=(row['NOME'])
+                minilista.append(per)
+                listanomi.append(minilista)
+                minilista=[]
+            else:
+                per=(row['NOME'])
+                minilista.append(per)
+        if minilista  == []:
+            print(listanomi)
+        else:
+            listanomi.append(minilista)
+            minilista=[]
+            print(listanomi)
+    return listanomi
 
 """
 def database(text):
