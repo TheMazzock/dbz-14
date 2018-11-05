@@ -16,7 +16,7 @@ nomi_keyboard = keyboard_personaggi()
 nomi_markup = ReplyKeyboardMarkup(keyboard=nomi_keyboard, one_time_keyboard=False)
 print(nomi_keyboard)
 
-def keyboard_personaggi:
+def keyboard_personaggi():
     with open('personaggi.csv') as csvpersonaggi:
         reader = csv.DictReader(csvpersonaggi, delimiter='|')
         listanomi=[]
