@@ -198,7 +198,7 @@ def handle(msg):
         bot.sendMessage(chat_id,"Per aggiungere un personaggio scrivi /aggiungi nomepersonaggio|descrizionepersonaggio")
     elif text.startswith("/aggiungi "):
         aggiunta = text[10:].split("|")
-        append_csv(fieldnames_personaggi,aggiunta)
+        append_csv(file_personaggi,fieldnames_personaggi,aggiunta)
     elif text == 'Modifica':
         bot.sendMessage(chat_id,"Sarebbe bello se fosse facile, ma è un cazzinculo")
     elif text == 'Esci':
