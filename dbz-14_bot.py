@@ -18,12 +18,11 @@ fieldnames_personaggi=['ID', 'NOME', 'DESCRIZIONE']
 def keyboard_personaggi():
     with open('personaggi.csv') as csvpersonaggi:
         reader = csv.DictReader(csvpersonaggi, delimiter='|')
+        print(reader)
         listanomi=[]
         minilista=[]
         for row in reader:
-            print(row)
             id=int(row['ID'])
-            print(id)
             if (id % 2) == 0:
                 per=(row['NOME'])
                 minilista.append(per)
