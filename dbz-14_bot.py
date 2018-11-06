@@ -108,12 +108,8 @@ def AggiungiPersonaggio():
     print(descrizione)
 """
     
+     
         
-        
-listadeipersonaggi = keyboard_personaggi()[1]
-nomi_keyboard = keyboard_personaggi()[0]
-nomi_markup = ReplyKeyboardMarkup(keyboard=nomi_keyboard, one_time_keyboard=False)
-get_length('personaggi.csv')
 
 """
 def database(text):
@@ -169,6 +165,10 @@ def handle(msg):
     except:
         firstname = msg['from']['first_name']
     user_id = msg['from']['id']
+    
+    listadeipersonaggi = keyboard_personaggi()[1]
+    nomi_keyboard = keyboard_personaggi()[0]
+    nomi_markup = ReplyKeyboardMarkup(keyboard=nomi_keyboard, one_time_keyboard=False)
    
     if content_type == 'text':
         text = msg['text']
@@ -198,8 +198,6 @@ def handle(msg):
     elif text.startswith("/aggiungi "):
         aggiunta = text[10:].split("|")
         append_csv(file_personaggi,fieldnames_personaggi,aggiunta)
-        listadeipersonaggi = keyboard_personaggi()[1]
-        nomi_keyboard = keyboard_personaggi()[0]
     elif text == 'Modifica':
         bot.sendMessage(chat_id,"Sarebbe bello se fosse facile, ma è un cazzinculo")
     elif text == 'Esci':
