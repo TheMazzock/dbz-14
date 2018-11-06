@@ -75,7 +75,7 @@ def append_csv(filename,fieldnames,elemento):
             idelemento=+1
             new[field:elemento[idelemento]]
         print(new)
-        # writer.writerow(new)
+        #  writer.writerow(new)
         
 
 """        
