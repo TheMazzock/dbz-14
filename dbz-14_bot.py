@@ -64,8 +64,11 @@ def append_csv(filename,fieldnames,elemento):
         writer.writerow(new)
         
 
-        
+"""        
 def QuickHandle():
+    TOKEN = '756616900:AAHGeFWrGvONdLWHOYCXuiS2Sb1j_XgJ9YY'
+    bot = telepot.Bot(TOKEN)
+    MessageLoop(bot, handle).run_as_thread()
     content_type, chat_type, chat_id = telepot.glance(msg)
     print(content_type, chat_type, chat_id)
     pprint(msg)
@@ -79,6 +82,9 @@ def QuickHandle():
     return text
     
 def AggiungiPersonaggio():
+    TOKEN = '756616900:AAHGeFWrGvONdLWHOYCXuiS2Sb1j_XgJ9YY'
+    bot = telepot.Bot(TOKEN)
+    MessageLoop(bot, handle).run_as_thread()
     content_type, chat_type, chat_id = telepot.glance(msg)
     bot.sendMessage(chat_id,"Inserisci il nome del personaggio")
     nome = QuickHandle()
@@ -86,6 +92,7 @@ def AggiungiPersonaggio():
     descrizione = QuickHandle()
     print(nome)
     print(descrizione)
+"""
     
         
         
@@ -170,7 +177,7 @@ def handle(msg):
     elif text == 'Dadi':
         bot.sendMessage(chat_id, str("Che dado vuoi lanciare?"), reply_markup=dadi_markup)
     elif text == 'Aggiungi':
-        AggiungiPersonaggio()
+        pass
     elif text == 'Esci':
         bot.sendMessage(chat_id, str("Dimmi avventuriero, cazzo vuoi?"), reply_markup=start_markup)
         
