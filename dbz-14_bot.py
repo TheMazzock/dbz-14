@@ -42,10 +42,11 @@ def keyboard_personaggi():
             minilista=[]
     return listanomi
 
-def DescrizionePersonaggio:
+"""
+def DescrizionePersonaggio():
     with open('personaggi.csv') as csvpersonaggi:
         reader = csv.DictReader(csvpersonaggi, delimiter='|')
-
+"""
 
 def get_length(filename):
     with open(filename, "r") as csvfile:
