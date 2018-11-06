@@ -70,12 +70,12 @@ def append_csv(filename,fieldnames,elemento):
     with open(filename, 'a') as csvfile:
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         idelemento=0
-        new={fieldnames[0]:elemento[0]}
+        new={fieldnames[0]:next_id}
         for field in fieldnames[1:]:
-            idelemento=+1
             new.update( {field:elemento[idelemento]} )
+            idelemento=+1
         print(new)
-        #  writer.writerow(new)
+        writer.writerow(new)
         
 
 """        
