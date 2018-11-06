@@ -74,7 +74,8 @@ def append_csv(filename,fieldnames,elemento):
         for field in fieldnames[1:]:
             idelemento=+1
             new[field:elemento[idelemento]]
-        writer.writerow(new)
+        print(new)
+        # writer.writerow(new)
         
 
 """        
@@ -196,8 +197,8 @@ def handle(msg):
     elif text == 'Aggiungi':
         bot.sendMessage(chat_id,"Per aggiungere un personaggio scrivi /aggiungi nomepersonaggio|descrizionepersonaggio")
     elif text.startswith("/aggiungi "):
-        aggiunta = text[10:].split("|")        
-        bot.sendMessage(chat_id,aggiunta)
+        aggiunta = text[10:].split("|")
+        append_csv(fieldnames_personaggi,aggiunta)
     elif text == 'Modifica':
         bot.sendMessage(chat_id,"Sarebbe bello se fosse facile, ma è un cazzinculo")
     elif text == 'Esci':
