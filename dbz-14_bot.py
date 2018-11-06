@@ -48,7 +48,7 @@ def keyboard_personaggi():
 def DescrizionePersonaggio(nomescelto):
     with open('personaggi.csv') as csvpersonaggi:
         reader = csv.DictReader(csvpersonaggi, delimiter='|')
-        descrizione
+        descrizione=''
         for row in reader:
             nome=row['NOME']
             if nome == nomescelto:
