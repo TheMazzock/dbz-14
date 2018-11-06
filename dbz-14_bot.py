@@ -33,13 +33,13 @@ def keyboard_personaggi():
                 per=(row['NOME'])
                 minilista.append(per)
         if minilista  == []:
+            listanomi.append(['Aggiungi','Modifica'])
             listanomi.append(['Esci'])
-            print(listanomi)
         else:
-            minilista.append('Esci')
             listanomi.append(minilista)
+            listanomi.append(['Aggiungi','Modifica'])
+            listanomi.append(['Esci'])
             minilista=[]
-            print(listanomi)
     return listanomi
 
 
@@ -62,6 +62,33 @@ def append_csv(filename,fieldnames,elemento):
             idelemento=+1
             new[field:elemento[idelemento]]
         writer.writerow(new)
+        
+
+        
+def QuickHandle():
+    content_type, chat_type, chat_id = telepot.glance(msg)
+    print(content_type, chat_type, chat_id)
+    pprint(msg)
+    try:
+        user = msg['from']['username']
+    except:
+        user = msg['from']['first_name']
+    user_id = msg['from']['id']
+    if content_type == 'text':
+        text = msg['text']
+    return text
+    
+def AggiungiPersonaggio():
+    content_type, chat_type, chat_id = telepot.glance(msg)
+    bot.sendMessage(chat_id,"Inserisci il nome del personaggio")
+    nome = QuickHandle()
+    bot.sendMessage(chat_id,"Inserisci la descrizione del personaggio")
+    descrizione = QuickHandle()
+    print(nome)
+    print(descrizione)
+    
+        
+        
         
 nomi_keyboard = keyboard_personaggi()
 nomi_markup = ReplyKeyboardMarkup(keyboard=nomi_keyboard, one_time_keyboard=False)
@@ -142,6 +169,8 @@ def handle(msg):
         bot.sendMessage(chat_id, lanciodadi)
     elif text == 'Dadi':
         bot.sendMessage(chat_id, str("Che dado vuoi lanciare?"), reply_markup=dadi_markup)
+    elif text == 'Aggiungi':
+        AggiungiPersonaggio()
     elif text == 'Esci':
         bot.sendMessage(chat_id, str("Dimmi avventuriero, cazzo vuoi?"), reply_markup=start_markup)
         
