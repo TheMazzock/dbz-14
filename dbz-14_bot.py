@@ -42,6 +42,10 @@ def keyboard_personaggi():
             minilista=[]
     return listanomi
 
+def DescrizionePersonaggio:
+    with open('personaggi.csv') as csvpersonaggi:
+        reader = csv.DictReader(csvpersonaggi, delimiter='|')
+
 
 def get_length(filename):
     with open(filename, "r") as csvfile:
@@ -177,7 +181,10 @@ def handle(msg):
     elif text == 'Dadi':
         bot.sendMessage(chat_id, str("Che dado vuoi lanciare?"), reply_markup=dadi_markup)
     elif text == 'Aggiungi':
-        pass
+        bot.sendMessage(chat_id,"Per aggiungere un personaggio scrivi /aggiungi nomepersonaggio|descrizionepersonaggio")
+    elif text.startswith("/aggiungi "):
+        aggiunta = text[10:]
+        bot.sendMessage(chat_id,aggiunta)
     elif text == 'Esci':
         bot.sendMessage(chat_id, str("Dimmi avventuriero, cazzo vuoi?"), reply_markup=start_markup)
         
