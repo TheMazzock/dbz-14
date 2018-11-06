@@ -111,7 +111,6 @@ def AggiungiPersonaggio():
         
         
 listadeipersonaggi = keyboard_personaggi()[1]
-print(listadeipersonaggi)
 nomi_keyboard = keyboard_personaggi()[0]
 nomi_markup = ReplyKeyboardMarkup(keyboard=nomi_keyboard, one_time_keyboard=False)
 get_length('personaggi.csv')
@@ -199,6 +198,8 @@ def handle(msg):
     elif text.startswith("/aggiungi "):
         aggiunta = text[10:].split("|")
         append_csv(file_personaggi,fieldnames_personaggi,aggiunta)
+        listadeipersonaggi = keyboard_personaggi()[1]
+        nomi_keyboard = keyboard_personaggi()[0]
     elif text == 'Modifica':
         bot.sendMessage(chat_id,"Sarebbe bello se fosse facile, ma è un cazzinculo")
     elif text == 'Esci':
