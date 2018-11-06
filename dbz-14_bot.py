@@ -22,6 +22,7 @@ def keyboard_personaggi():
         listanomi=[]
         minilista=[]
         for row in reader:
+            print(row)
             id=int(row['ID'])
             if (id % 2) == 0:
                 per=(row['NOME'])
