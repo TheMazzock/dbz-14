@@ -71,9 +71,11 @@ def append_csv(filename,fieldnames,elemento):
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
         idelemento=0
         new={fieldnames[0]:str(next_id)}
+        print(new)
         for field in fieldnames[1:]:
             new.update( {field:elemento[idelemento]} )
             idelemento=+1
+            print(new)
         print(new)
         writer.writerow(new)
         
