@@ -20,6 +20,7 @@ def keyboard_personaggi():
         reader = csv.DictReader(csvpersonaggi, delimiter='|')
         print(reader)
         listanomi=[]
+        listapersonaggi=[]
         minilista=[]
         for row in reader:
             print(row)
@@ -27,11 +28,13 @@ def keyboard_personaggi():
             if (id % 2) == 0:
                 per=(row['NOME'])
                 minilista.append(per)
+                listapersonaggi.append(per)
                 listanomi.append(minilista)
                 minilista=[]
             else:
                 per=(row['NOME'])
                 minilista.append(per)
+                listapersonaggi.append(per)
         if minilista  == []:
             listanomi.append(['Aggiungi','Modifica'])
             listanomi.append(['Esci'])
@@ -40,13 +43,18 @@ def keyboard_personaggi():
             listanomi.append(['Aggiungi','Modifica'])
             listanomi.append(['Esci'])
             minilista=[]
-    return listanomi
+    return [listanomi,listapersonaggi]
 
-"""
-def DescrizionePersonaggio():
+def DescrizionePersonaggio(nomescelto):
     with open('personaggi.csv') as csvpersonaggi:
         reader = csv.DictReader(csvpersonaggi, delimiter='|')
-"""
+        descrizione
+        for row in reader:
+            nome=row['NOME']
+            if nome == nomescelto:
+                descrizione=row['DESCRIZIONE']
+    return descrizione
+
 
 def get_length(filename):
     with open(filename, "r") as csvfile:
@@ -101,8 +109,9 @@ def AggiungiPersonaggio():
     
         
         
-        
-nomi_keyboard = keyboard_personaggi()
+listadeipersonaggi = keyboard_personaggi()[1]
+print(listadeipersonaggi)
+nomi_keyboard = keyboard_personaggi()[0]
 nomi_markup = ReplyKeyboardMarkup(keyboard=nomi_keyboard, one_time_keyboard=False)
 get_length('personaggi.csv')
 
@@ -172,6 +181,9 @@ def handle(msg):
         bot.sendMessage(chat_id,'Dopo innumerevoli peripezie e aver messo alla prova il loro allineamento massacrando dei poveracci in un carcere, i nostri eroi sono entrati nel posto segreto, hanno ucciso delle mummie e risolto un indovinello e sono pronti ora alla battaglia finale')
     elif text == 'Personaggi':
         bot.sendMessage(chat_id, str("Ecco l'elenco dei personaggi"), reply_markup=nomi_markup)
+    elif text in listadeipersonaggi:
+        descrizionepersonaggio = DescrizionePersonaggio(text)
+        bot.sendMessage(chat_id,descrizionepersonaggio)
     elif text == 'Luoghi':
         bot.sendMessage(chat_id,'Ancora da implementare. Comunque sono tutti brutti e noiosi')
     elif text == '/database':
