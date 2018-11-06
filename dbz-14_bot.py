@@ -68,7 +68,7 @@ def get_length(filename):
 def append_csv(filename,fieldnames,elemento):
     next_id = get_length(filename)
     with open(filename, 'a') as csvfile:
-        writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+        writer = csv.DictWriter(csvfile, fieldnames=fieldnames, delimiter='|')
         idelemento=0
         new={fieldnames[0]:str(next_id)}
         print(new)
