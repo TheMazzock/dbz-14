@@ -167,7 +167,7 @@ def handle(msg):
     if text == '/start':
         bot.sendMessage(chat_id, str("Dimmi avventuriero, cazzo vuoi?"), reply_markup=start_markup)
     elif text == 'Aiuto':
-        bot.sendMessage(chat_id,'Le funzioni disponibili sono /riassunto, /personaggi, /luoghivisitati, /database (Questa lasciatela stare)')
+        bot.sendMessage(chat_id,'Le funzioni disponibili sono quelle porca puttana che vedete scritte nei pulsanti, se volete un aiuto serio potete rivolgervi allo pissicologo DeRossa che accetta bukkake per pagamento... Ps. Sto lavorando sulla parte dei personaggi in modo che se ne possano aggiungere di nuovi...')
     elif text == 'Riassunto':
         bot.sendMessage(chat_id,'Dopo innumerevoli peripezie e aver messo alla prova il loro allineamento massacrando dei poveracci in un carcere, i nostri eroi sono entrati nel posto segreto, hanno ucciso delle mummie e risolto un indovinello e sono pronti ora alla battaglia finale')
     elif text == 'Personaggi':
@@ -184,8 +184,10 @@ def handle(msg):
     elif text == 'Aggiungi':
         bot.sendMessage(chat_id,"Per aggiungere un personaggio scrivi /aggiungi nomepersonaggio|descrizionepersonaggio")
     elif text.startswith("/aggiungi "):
-        aggiunta = text[10:]
+        aggiunta = text[10:].split("|")        
         bot.sendMessage(chat_id,aggiunta)
+    elif text == 'Modifica':
+        bot.sendMessage(chat_id,"Sarebbe bello se fosse facile, ma è un cazzinculo")
     elif text == 'Esci':
         bot.sendMessage(chat_id, str("Dimmi avventuriero, cazzo vuoi?"), reply_markup=start_markup)
         
